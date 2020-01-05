@@ -12,9 +12,7 @@ const initialState = [
 
 const reducer = createReducer<Bookmark[]>(
     initialState,
-    on(added, (state: Bookmark[], newBookmark: NewBookmark) => {
-        console.log("creation"); console.log(newBookmark);
-        return ([...state, { ...newBookmark, id: idSequence++ }]);}),
+    on(added, (state: Bookmark[], newBookmark: NewBookmark) => ([...state, { ...newBookmark, id: idSequence++ }])),
     on(removed, (state: Bookmark[], { id }) => state.filter(bookmark => bookmark.id !== id))
 );
 

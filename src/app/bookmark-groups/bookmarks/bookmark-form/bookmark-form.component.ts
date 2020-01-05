@@ -32,8 +32,6 @@ export class BookmarkFormComponent implements OnInit {
   }
 
   addBookmark() {
-    console.log("val")
-    console.log(this.bookmarkForm.value)
     this.store.dispatch(bookmarkAddedAction(this.bookmarkForm.value));
     this.close();
   }
