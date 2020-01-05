@@ -1,0 +1,45 @@
+<div class="container">
+  <table *ngIf="(bookmarks$ | async).length; else noBookmarks" mat-table [dataSource]="bookmarks$" class="mat-elevation-z8">
+
+    <ng-container matColumnDef="visit">
+      <th mat-header-cell *matHeaderCellDef>Visit</th>
+      <td mat-cell *matCellDef="let bookmark">
+        <button mat-button class="visit-button" (click)="visit(bookmark.url)">
+          <mat-icon>input</mat-icon>
+        </button>
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="id">
+      <th mat-header-cell *matHeaderCellDef>Id</th>
+      <td mat-cell *matCellDef="let bookmark"> {{bookmark.id}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef>Name</th>
+      <td mat-cell *matCellDef="let bookmark"> {{bookmark.name}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="url">
+      <th mat-header-cell *matHeaderCellDef>URL</th>
+      <td mat-cell *matCellDef="let bookmark"><i>{{bookmark.url}}</i></td>
+    </ng-container>
+
+    <ng-container matColumnDef="removeButton">
+      <th mat-header-cell *matHeaderCellDef></th>
+      <td mat-cell *matCellDef="let bookmark" class="align-right">
+        <button mat-button (click)="remove(bookmark)">
+          <mat-icon>delete</mat-icon>
+        </button>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+  <ng-template #noBookmarks><h2>No bookmarks in group '{{group}}'</h2></ng-template>
+
+  <button mat-fab color="primary" class="addBookmarkButton" (click)="add()">
+    <mat-icon>add</mat-icon>
+  </button>
+</div>

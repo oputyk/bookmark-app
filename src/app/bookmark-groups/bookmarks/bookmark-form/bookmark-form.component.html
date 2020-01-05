@@ -1,0 +1,21 @@
+<form [formGroup]="bookmarkForm">
+  <h1 mat-dialog-title>New bookmark in {{dialogData.group}}</h1>
+
+  <div class="content" mat-dialog-content>
+    <mat-form-field>
+      <input placeholder="Name" matInput formControlName="name" required>
+    </mat-form-field>
+
+    <mat-form-field>
+      <input placeholder="URL" matInput formControlName="url" required>
+    </mat-form-field>
+
+    <mat-form-field>
+      <input laceholder="Group" matInput formControlName="group" required readonly>
+    </mat-form-field>
+  </div>
+  <div mat-dialog-actions>
+    <button mat-button (click)="close()">Cancel</button>
+    <button mat-button (click)="addBookmark()" [disabled]="!bookmarkForm.valid">Save</button>
+  </div>
+</form>

@@ -1,0 +1,30 @@
+:host {
+    display: flex;
+    justify-content: center;
+}
+
+table {
+    width: 100%;
+}
+
+.align-right {
+    display: flex;
+    padding: 1.5em 0;
+    justify-content: flex-end;
+}
+
+.visit-button {
+    margin-left: -16px;
+}
+
+.container {
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.addBookmarkButton {
+    margin-top: 1em;
+    align-self: flex-end;
+}

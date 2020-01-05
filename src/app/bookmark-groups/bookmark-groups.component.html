@@ -1,0 +1,6 @@
+<mat-expansion-panel *ngFor="let group of groups;">
+  <mat-expansion-panel-header>
+    <mat-panel-title>{{group}}</mat-panel-title>
+  </mat-expansion-panel-header>
+  <app-bookmarks [group] = "group"></app-bookmarks>
+</mat-expansion-panel>
